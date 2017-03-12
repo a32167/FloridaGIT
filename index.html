@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+    <head>
+        <title></title>
+
+        <script>
+
+            function countdown() {
+
+                var flightOut = new Date(2017,7,28,11,0,0,0).getTime();
+                var currentDate = new Date().getTime();
+                var difference = flightOut - currentDate;
+
+                var seconds = parseInt(( difference % ( 1000 * 60 )) / 1000);
+                var minutes = parseInt(( difference % ( 1000 * 60 * 60 )) / ( 1000 * 60 ));
+                var hours = parseInt (( difference % ( 1000 * 60 * 60 * 24 )) / ( 1000 * 60 * 60 ));
+                var days = parseInt( difference / ( 1000 * 60 * 60 * 24 ));
+
+                var countDown = days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds";
+
+                document.getElementById("timer").innerHTML = countDown;
+
+                return;
+            }
+
+            setInterval(countdown, 1000);
+
+        </script>
+
+        <style>
+
+            @font-face {
+                font-family: custom; src: url('KGSummerSunshineBlackout.ttf');
+            }
+
+            #div {
+                margin-top: 50px;
+            }
+
+            #timer, #text, #to {
+                color:black;
+                font-size: 50px;
+                font-family: custom;
+                width: 1000px;
+                margin: auto;
+                text-align: center;
+                line-height: 150%;
+            }
+
+            #image {
+                display:block;
+                margin:auto;
+                max-width: 500px;
+            }
+
+            body {
+                background-image: url('summer.jpg');
+                background-size: cover;
+
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div id="div">
+            <p id="timer"></p>
+            <p id="text">Left until our holiday</p>
+            <p id="to">to</p>
+            <img id="image" src="sunshineState.jpg"/>
+        </div>
+
+    </body>
+
+
+</html>
